@@ -1,0 +1,64 @@
+{
+  "name": "@futoin/msgbot-discord",
+  "version": "0.0.1",
+  "description": "Discord support for FutoIn Message Bot",
+  "main": "lib/main.js",
+  "files": [
+    "examples/",
+    "lib/",
+    "*Face.js",
+    "*Service.js",
+    "*Helpers.js",
+    "futoin.json"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/futoin/ext-js-msgbot-discord.git"
+  },
+  "keywords": [
+    "futoin",
+    "bot",
+    "agent",
+    "chat",
+    "discord"
+  ],
+  "author": {
+    "name": "Andrey Galkin",
+    "email": "andrey@futoin.org"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/futoin/ext-js-msgbot-discord/issues",
+    "email": "support@futoin.org"
+  },
+  "devDependencies": {
+    "@futoin/msgbot": "^0.2.0",
+    "chai": "^4.2.0",
+    "futoin-asyncsteps": "^2.4.3",
+    "futoin-executor": "^2.3.2",
+    "futoin-invoker": "^2.4.1",
+    "grunt": "^1.0.4",
+    "grunt-eslint": "^22.0.0",
+    "grunt-jsdoc-to-markdown": "^5.0.0",
+    "grunt-simple-nyc": "^3.0.0",
+    "grunt-text-replace": "^0.4.0",
+    "mocha": "^6.2.2"
+  },
+  "peerDependencies": {
+    "@futoin/msgbot": "^0.2.0",
+    "futoin-asyncsteps": "^2.4.3",
+    "futoin-executor": "^2.3.2",
+    "futoin-invoker": "^2.4.1"
+  },
+  "dependencies": {
+    "@discordjs/uws": "^11.149.1",
+    "discord.js": "^11.5.1",
+    "erlpack": "^0.1.3"
+  }
+}
