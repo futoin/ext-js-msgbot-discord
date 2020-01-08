@@ -63,12 +63,19 @@ class DiscordService extends ServerService {
                     ( asi ) => {
                         ccm.iface( ROUTER_FACE ).onMessage( asi, {
                             server:  `${SERVER_FACE_PREFIX}${m.guild ? m.guild.id : 0}`,
-                            channel: m.channel ? toU64( m.channel ) : null,
+                            channel: toU64( m.channel ),
                             payload: m.content,
                             private: !m.guild,
                             sender:  toU64( m.author.id ),
                             ts:      new Date( m.createdTimestamp ).toISOString(),
                             ext_id:  m.id,
+                        } );
+
+                        asi.add( ( asi, { rsp } ) => {
+                            if ( rsp ) {
+                                ccm.log().debug( `DiscordService: response '${rsp}'` );
+                                asi.await( m.reply( rsp, { split: true } ) );
+                            }
                         } );
                     },
                     ( asi, err ) => {
@@ -77,8 +84,6 @@ class DiscordService extends ServerService {
                             ccm.log().debug( `DiscordService: ${asi.state.last_exception}` );
                         } catch ( e ) {
                             console.error( e );
-                            console.log( `DiscordService: message handling failure ${err}:${asi.state.error_info}` );
-                            console.log( `DiscordService: ${asi.state.last_exception}` );
                         }
                     }
                 );

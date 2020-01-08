@@ -90,9 +90,9 @@ describe( 'Registration Test', function() {
                 app.ccm().iface( ROUTER_FACE ).registerHandler(
                     asi,
                     'test',
+                    [ '//test' ],
                     [],
-                    [],
-                    true
+                    false
                 );
             } );
         } );
@@ -104,11 +104,13 @@ describe( 'Registration Test', function() {
             if ( hand._done ) {
                 app.close( () => asi.success() );
             } else {
-                console.dir( 'Please emit Discord message' );
+                console.dir( 'Please emit //test Discord message' );
                 hand._onDone = function() {
                     if ( !this._done ) {
                         this._done = true;
-                        app.close( () => asi.success() );
+                        setTimeout( () => {
+                            app.close( () => asi.success() );
+                        }, 3e3 );
                     }
                 };
             }
