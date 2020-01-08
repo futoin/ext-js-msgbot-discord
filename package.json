@@ -1,6 +1,6 @@
 {
   "name": "@futoin/msgbot-discord",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Discord support for FutoIn Message Bot",
   "main": "lib/main.js",
   "files": [

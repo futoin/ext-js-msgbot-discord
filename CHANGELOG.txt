@@ -1,4 +1,4 @@
-=== (next) ===
+=== 0.1.1 (2020-01-08) ===
 FIXED: missing response handling from onMessage()
 
 === 0.1.0 (2020-01-08) ===
