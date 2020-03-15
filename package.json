@@ -38,17 +38,17 @@
     "email": "support@futoin.org"
   },
   "devDependencies": {
-    "@futoin/msgbot": "^0.3.0",
+    "@futoin/msgbot": "^0.3.1",
     "chai": "^4.2.0",
-    "futoin-asyncsteps": "^2.5.0",
-    "futoin-executor": "^2.3.2",
-    "futoin-invoker": "^2.4.1",
+    "futoin-asyncsteps": "^2.5.1",
+    "futoin-executor": "^2.3.3",
+    "futoin-invoker": "^2.4.2",
     "grunt": "^1.0.4",
     "grunt-eslint": "^22.0.0",
     "grunt-jsdoc-to-markdown": "^5.0.0",
     "grunt-simple-nyc": "^3.0.1",
     "grunt-text-replace": "^0.4.0",
-    "mocha": "^7.0.0"
+    "mocha": "^7.1.0"
   },
   "peerDependencies": {
     "@futoin/msgbot": "^0.2.0",
@@ -61,6 +61,6 @@
     "erlpack": "^0.1.3"
   },
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^12.0.2"
   }
 }
