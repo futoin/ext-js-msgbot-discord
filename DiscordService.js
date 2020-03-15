@@ -92,13 +92,13 @@ class DiscordService extends ServerService {
 
             // TODO: various event handling
         } else {
-            this._guild = this._client.guilds.get( guild_id );
+            this._guild = this._client.guilds.cache.get( guild_id );
         }
     }
 
     pushMessage( asi, req ) {
         const { msg } = req.params();
-        const chan = this._client.channels.get( fromU64( msg.channel ) );
+        const chan = this._client.channels.cache.get( fromU64( msg.channel ) );
 
         asi.await( chan.send( msg.payload, { split: true } ) );
         asi.add( ( asi ) => req.result( true ) );

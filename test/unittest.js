@@ -21,7 +21,6 @@ const ReactHandlerService = require( '@futoin/msgbot/ReactHandlerService' );
 
 const main = require( '../lib/main' );
 const { toU64, fromU64 } = require( '../lib/snowflake' );
-const Long = require( 'long' );
 const discordToken = process.env.discordToken;
 
 class TestApp extends ServiceApp {
@@ -31,15 +30,16 @@ class TestApp extends ServiceApp {
 }
 
 describe( 'Snowflake U64', function() {
-    it( 'should toU64()', () => {
+    it( 'should toU64()', $as_test( function( asi ) {
         expect( toU64( 123 ) ).equal( 'RkRpc2NvcmQAAAAAAAAAew' );
         expect( toU64( 234 ) ).equal( 'RkRpc2NvcmQAAAAAAAAA6g' );
-        expect( toU64( Long.fromString( '123' ) ) ).equal( 'RkRpc2NvcmQAAAAAAAAAew' );
-    } );
-    it( 'should fromU64()', () => {
+        expect( toU64( '1311768465171234567' ) ).equal( 'RkRpc2NvcmQSNFZ4Ehc/Bw' );
+    } ) );
+    it( 'should fromU64()', $as_test( function( asi ) {
         expect( fromU64( 'RkRpc2NvcmQAAAAAAAAAew' ).toString() ).equal( '123' );
         expect( fromU64( 'RkRpc2NvcmQAAAAAAAAA6g' ).toString() ).equal( '234' );
-    } );
+        expect( fromU64( 'RkRpc2NvcmQSNFZ4Ehc/Bw' ).toString() ).equal( '1311768465171234567' );
+    } ) );
 } );
 
 describe( 'Registration Test', function() {
@@ -63,7 +63,7 @@ describe( 'Registration Test', function() {
         this.timeout( 60e3 );
         const app = new TestApp( asi, {
             discordToken,
-            //logLevel: 'debug',
+            logLevel: 'debug',
         } );
 
         asi.add( asi => {
